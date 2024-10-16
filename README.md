@@ -1,5 +1,5 @@
-Case-App
-========
+Case-Convert
+============
 
 A dirt-simple command-line app for performing (sometimes exotic) case-conversions - just
 a command-line interface to the [`case_convert`](https://crates.io/crates/case_convert)
