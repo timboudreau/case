@@ -24,7 +24,7 @@ that convert between programmatic names and display names.  There are, of course
 with `sed` and similar that can do this sort of thing - this is just a straightforward,
 non-abstruse way to do it.
 
-The [help content](./blob/main/src/help.txt) explains the command-line arguments in detail.
+The [help content](https://github.com/timboudreau/case/blob/main/src/help.txt) explains the command-line arguments in detail.
 
 
 Install
