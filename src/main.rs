@@ -211,7 +211,6 @@ fn find_case_in_args(
         match vv.as_str() {
             CASE_SWITCH_SHORT | CASE_SWITCH_LONG => {
                 if expecting_case {
-                    // return Err("-c or --case passed more than once");
                     return Err(formatcp!(
                         "-{CASE_SWITCH_SHORT} or --{CASE_SWITCH_LONG} passed more than once"
                     ));
