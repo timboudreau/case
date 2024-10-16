@@ -6,7 +6,7 @@ a command-line interface to the [`case_convert`](https://crates.io/crates/case_c
 Rust crate.  Operates on either trailing command-line arguments, or if none, stdin.
 
 ```sh
-$ case -c kebab ZenMultibandCompressorExtension
+$ case-convert -c kebab ZenMultibandCompressorExtension
 zen-multiband-compressor-extension
 
 $ case-convert -c title ZenMultibandCompressorExtension
