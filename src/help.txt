@@ -31,7 +31,7 @@ Cases:
 
 Case examples:
 
-> case -x "ThisIsSomeStuff That Is   Stuff-and_stuff"
+> case-convert -x "ThisIsSomeStuff That Is   Stuff-and_stuff"
 
 ┌──────────────────┬───────────────────────────────────────────┐
 │ alternating      │ tHiS iS sOmE sTuFf ThAt Is StUfF aNd StUfF│
