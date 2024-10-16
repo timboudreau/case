@@ -11,8 +11,8 @@ To see the effect of different cases, run passing -x followed by some text to co
 
 Usage:
 
-  case [-x/--examples] [-o/--omit-trailing-newline] [-c/--case <case>] [INPUT]
-  
+  case-convert [-x/--examples] [-o/--omit-trailing-newline] [-c/--case <case>] [INPUT]
+
 
 Line Switches:
 
