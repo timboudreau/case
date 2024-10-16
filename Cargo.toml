@@ -1,0 +1,19 @@
+[package]
+name = "case-cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+const_format = "0.2.33"
+convert_case = "0.6.0"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = "fat"
+opt-level = "z"
+strip = true
+
+[[bin]]
+name="case-convert"
+path="src/main.rs"

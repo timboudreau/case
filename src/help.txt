@@ -1,0 +1,94 @@
+case-convert
+═══════════
+
+Case-converts strings passed as input arguments or stdin to a variety of "cases".
+
+If no text is passed following any line-switches, input is assumed to be stdin.
+
+If no case is passed, `--case title` is the default.
+
+To see the effect of different cases, run passing -x followed by some text to convert.
+
+Usage:
+
+  case [-x/--examples] [-o/--omit-trailing-newline] [-c/--case <case>] [INPUT]
+  
+
+Line Switches:
+
+  -x/--examples               Output the text in each supported case to see 
+                              what each does
+  -o/--omit-trailing-newline  Do not append a final newline to the output (useful
+                              in shell scripts)
+  -c/--case CASE              Convert to the passed named case.
+
+
+Cases:
+
+  title, upper, lower, toggle, snake, upper-snake, pascal, camel, upper-camel,
+  screaming-snake, kebab, cobol, upper-kebab, train, flat, upper-flat, alternating
+
+
+Case examples:
+
+> case -x "ThisIsSomeStuff That Is   Stuff-and_stuff"
+
+┌──────────────────┬───────────────────────────────────────────┐
+│ alternating      │ tHiS iS sOmE sTuFf ThAt Is StUfF aNd StUfF│
+├──────────────────┼───────────────────────────────────────────┤
+│ camel            │ thisIsSomeStuffThatIsStuffAndStuff        │
+├──────────────────┼───────────────────────────────────────────┤
+│ cobol            │ THIS-IS-SOME-STUFF-THAT-IS-STUFF-AND-STUFF│
+├──────────────────┼───────────────────────────────────────────┤
+│ flat             │ thisissomestuffthatisstuffandstuff        │
+├──────────────────┼───────────────────────────────────────────┤
+│ kebab            │ this-is-some-stuff-that-is-stuff-and-stuff│
+├──────────────────┼───────────────────────────────────────────┤
+│ lower            │ this is some stuff that is stuff and stuff│
+├──────────────────┼───────────────────────────────────────────┤
+│ pascal           │ ThisIsSomeStuffThatIsStuffAndStuff        │
+├──────────────────┼───────────────────────────────────────────┤
+│ screaming-snake  │ THIS_IS_SOME_STUFF_THAT_IS_STUFF_AND_STUFF│
+├──────────────────┼───────────────────────────────────────────┤
+│ snake            │ this_is_some_stuff_that_is_stuff_and_stuff│
+├──────────────────┼───────────────────────────────────────────┤
+│ title            │ This Is Some Stuff That Is Stuff And Stuff│
+├──────────────────┼───────────────────────────────────────────┤
+│ toggle           │ tHIS iS sOME sTUFF tHAT iS sTUFF aND sTUFF│
+├──────────────────┼───────────────────────────────────────────┤
+│ train            │ This-Is-Some-Stuff-That-Is-Stuff-And-Stuff│
+├──────────────────┼───────────────────────────────────────────┤
+│ upper            │ THIS IS SOME STUFF THAT IS STUFF AND STUFF│
+├──────────────────┼───────────────────────────────────────────┤
+│ upper-camel      │ ThisIsSomeStuffThatIsStuffAndStuff        │
+├──────────────────┼───────────────────────────────────────────┤
+│ upper-flat       │ THISISSOMESTUFFTHATISSTUFFANDSTUFF        │
+├──────────────────┼───────────────────────────────────────────┤
+│ upper-kebab      │ THIS-IS-SOME-STUFF-THAT-IS-STUFF-AND-STUFF│
+├──────────────────┼───────────────────────────────────────────┤
+│ upper-snake      │ THIS_IS_SOME_STUFF_THAT_IS_STUFF_AND_STUFF│
+└──────────────────┴───────────────────────────────────────────┘
+
+
+Argument-based Input
+--------------------
+
+Trailing arguments which are not line-switches are treated as *separate* inputs
+to process, and emitted space-separated (any line switches after the first 
+unrecognized argument are treated as input) rather than treated as a single
+string.  Simply quote the string if you want to pass it as a single argument.
+
+The upshot of this is that
+case-convert -c snake wurgle_burgle-boo -c alternating FizzBin
+
+results in the output *wurgle_burgle_boo c alternating fizz_bin*, but
+
+case-convert -c snake "wurgle_burgle-boo -c Alternating FizzBin"
+
+results in the output *wurgle_burgle_boo_c_alternating_fizz_bin*
+
+
+Stdin-based Input
+-----------------
+
+Stdin-based input is handled a line at a time, and emitted space-separated.
